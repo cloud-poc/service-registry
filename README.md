@@ -1,19 +1,19 @@
 # Service Registry Netflix Eureka + Spring Cloud
 - Spring boot application to setup eureka server
   simple and easy to find samples on internet
-- clustering deployment  
+- Clustering deployment  
   1. Peer Awareness deployment model  
   Eureka can be made even more resilient and available by running multiple instances and asking them to register with each other.
   
   2. A simple deployment architecture diagram
   ![./eureka-cluster-arch-diagram.jpg](./eureka-cluster-arch-diagram.jpg)
   
-  3. Deployment the cluster using docker-compose
+  3. Deploy the cluster using docker-compose with below content:  
 
       #docker-compose
       version:"3"
       services:
-        # service registry cluster - node1
+        #service registry cluster - node1
         service-registry-1:
           image: akjamie/cloud-service-registry:1.0.0
           container_name: service-registry-node1
@@ -25,7 +25,7 @@
           ports:
             - 8761:8761
         
-        # service registry cluster - node2
+        #service registry cluster - node2
         service-registry-2:
           image: akjamie/cloud-service-registry:1.0.0
           container_name: service-registry-node2

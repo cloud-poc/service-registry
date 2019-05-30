@@ -10,8 +10,10 @@
   
   3. Deployment the cluster using docker-compose
 
-    version: "3"
+    #docker-compose
+    version:"3"
     services:
+    
       # service registry cluster - node1
       service-registry-1:
         image: akjamie/cloud-service-registry:1.0.0

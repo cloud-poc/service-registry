@@ -9,6 +9,10 @@ eureka:
       defaultZone: ${EURAKE_CLIENT_SERVICE_URL:http://localhost:8761/eureka/}
     fetch-registry: ${EUREKA_CLIENT_FETCH_REGISTRY:false}
     register-with-eureka: ${EUREKA_CLIENT_REGISTER_WITH_EUREKA:false}
+    should-unregister-on-shutdown: true
+    heartbeat-executor-thread-pool-size: ${EUREKA_CLIENT_HEARTBEAT_THREAD_POOL_SIZE:10}
     healthcheck:
       enabled: true
+  server:
+    enable-self-preservation: ${EUREKA_SERVER_ENABLE_SELF_PRESERVATION:true}
     

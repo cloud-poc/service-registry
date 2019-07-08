@@ -5,7 +5,6 @@ eureka:
     hostname: ${EUREKA_INSTANCE_HOSTNAME:localhost}
   client:
     service-url:
-      #defaultZone: ${EURAKE_CLIENT_SERVICE_URL:http://localhost:8761/eureka/}
       defaultZone: ${EURAKE_CLIENT_SERVICE_URL:http://localhost:8761/eureka/}
     fetch-registry: ${EUREKA_CLIENT_FETCH_REGISTRY:false}
     register-with-eureka: ${EUREKA_CLIENT_REGISTER_WITH_EUREKA:false}
@@ -14,5 +13,14 @@ eureka:
     healthcheck:
       enabled: true
   server:
-    enable-self-preservation: ${EUREKA_SERVER_ENABLE_SELF_PRESERVATION:true}
+    enable-self-preservation: ${EUREKA_SERVER_ENABLE_SELF_PRESERVATION:false}
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,bus-refresh,hystrix.stream,prometheus,metrics
+  metrics:
+    export.prometheus.enabled: true
+    tags.application: ${spring.application.name}
     
